@@ -1,0 +1,47 @@
+svg {
+  height: 40px !important;
+  color: white ;
+
+}
+
+.Search-btn
+{
+  background-color: yellow;
+  z-index: 1000;
+  left: 0px;
+  top: 0px;
+  padding: 22px;
+
+}
+.Search-btn svg
+{
+font-size: 1px;
+height: 50%;
+}
+.Side
+{
+  min-height: 100vh;
+  max-height: 100vh;
+}
+.online
+{
+font-size: 10px !important;
+}
+.chatbox
+{
+  height: 90vh;
+}
+.msgInput
+{
+  height: 50px;
+}
+.SendMsg
+{
+  cursor: pointer;
+  padding-top: 5px;
+
+}
+.Msg
+{ max-width: 80%;
+
+}
