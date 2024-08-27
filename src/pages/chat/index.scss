@@ -1,3 +1,5 @@
+
+
 svg {
   height: 40px !important;
   color: white ;
@@ -18,19 +20,12 @@ svg {
 font-size: 1px;
 height: 50%;
 }
-.Side
-{
-  min-height: 100vh;
-  max-height: 100vh;
-}
+
 .online
 {
 font-size: 10px !important;
 }
-.chatbox
-{
-  height: 90vh;
-}
+
 .msgInput
 {
   height: 50px;
@@ -44,4 +39,78 @@ font-size: 10px !important;
 .Msg
 { max-width: 80%;
 
+}
+.mybg
+{
+
+  background-color: rgba(30, 41, 59, 0.726);
+  border: 3px double #2574fc5e;
+  border-radius: 8px;
+
+}
+#forHeight
+{
+
+  min-height: 80vh !important;
+
+}
+.chat-bg
+{
+background-color: rgba(15, 23, 42, 0.726);
+}
+.backgroundimg
+{
+  background-image: url("../../assets/chatappwb.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.chatboox
+{
+min-height:80% ;
+}
+#Side
+{
+min-height: 80vh;
+max-height: 80vh;
+
+}
+#chatcontent
+{
+  min-height: 80vh;
+}
+.chatbox-content
+{
+  height: 100% !important;
+}
+
+
+#Side {
+  --sb-track-color: #232e33;
+  --sb-thumb-color: #6BAF8D;
+  --sb-size: 14px;
+}
+
+#Side::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+#Side::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+#Side::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  #Side {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
 }
