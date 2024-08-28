@@ -1,8 +1,6 @@
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { doc, setDoc } from 'firebase/firestore'
 import { useContext, useEffect, useRef } from 'react'
-import { db } from '../firebase'
 import { NavContext } from './Context'
 
 export default function MsgInput() {
@@ -10,22 +8,12 @@ export default function MsgInput() {
   const { activeUser, setActiveUser, getAllMsg, allMsg, setAllMsg } =
     useContext(NavContext)
 
-  const setNewMessage = async () => {
-    let indexnumber = allMsg.length
-    await setDoc(doc(db, 'messages', indexnumber.toString()), {
-      message: msgInput.current.value,
-      reciver_id: activeUser.toString(),
-      sender_id: '1',
-    })
-    console.log(allMsg.length)
-  }
-
   useEffect(() => {
     getAllMsg()
   }, [])
 
   return (
-    <div className="col-12 position-relative ">
+    <div className="col-12 position-relative chatinput">
       <input
         ref={msgInput}
         type="text"

@@ -12,7 +12,7 @@ export default function WorkSpaceNav(props) {
   const { activeUser, setActiveUser, users, setUsers } = useContext(NavContext)
 
   return (
-    <div className="col-12 h-25 p-3 d-flex flex-row justify-content-between mybg ">
+    <div className="col-12 h-25 p-3 d-flex flex-row justify-content-between mybg chatheader ">
       <div className=" d-flex flex-row flex-wrap gap-4 align-content-center  ">
         <FontAwesomeIcon
           className="bg-black rounded-circle p-2"

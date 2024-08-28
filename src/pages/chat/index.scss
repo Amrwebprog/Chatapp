@@ -1,65 +1,160 @@
-
-
-svg {
-  height: 40px !important;
-  color: white ;
-
+* {
+  color: rgb(235, 220, 220);
 }
 
-.Search-btn
-{
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+
+  border-radius: 4px;
+  padding: 0.5rem;
+
+
+  .search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+
+    padding-left: 3rem;
+
+    border: 2px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: #007bff;
+      /* Change border color on focus */
+      outline: none;
+    }
+  }
+
+  .search-btn {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #007bff;
+    /* Blue background for contrast */
+    padding: 0.5rem;
+    /* Add padding for spacing around the icon */
+    border-radius: 50%;
+    /* Make the button circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+
+    svg {
+      height: 1.25rem;
+      /* Increase icon size */
+      width: 1.25rem;
+    }
+  }
+}
+
+svg {
+  color: white;
+  height: 40px !important;
+}
+
+svg {
+  color: white;
+  height: 40px !important;
+}
+
+.Search-btn {
   background-color: yellow;
   z-index: 1000;
   left: 0px;
   top: 0px;
   padding: 22px;
 
-}
-.Search-btn svg
-{
-font-size: 1px;
-height: 50%;
-}
-
-.online
-{
-font-size: 10px !important;
+  svg {
+    color: #232e33;
+    background-color: #000;
+  }
 }
 
-.msgInput
-{
+
+
+.online {
+  font-size: 10px !important;
+}
+
+.msgInput {
   height: 50px;
 }
-.SendMsg
-{
+
+.SendMsg {
   cursor: pointer;
   padding-top: 5px;
 
 }
-.Msg
-{ max-width: 80%;
+
+.Msg {
+  max-width: 80%;
 
 }
-.mybg
-{
+
+
+.mybg {
 
   background-color: rgba(30, 41, 59, 0.726);
   border: 3px double #2574fc5e;
   border-radius: 8px;
+}
+
+#forHeight {
+
+  min-height: 100% !important;
 
 }
-#forHeight
-{
 
-  min-height: 80vh !important;
+.chatcontainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+}
 
+.chatbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  height: 400px;
+  /* Fixed height for the chatbox */
+  overflow: hidden;
+  /* Prevent chatbox from growing */
 }
-.chat-bg
-{
-background-color: rgba(15, 23, 42, 0.726);
+
+.chatboox {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 100%;
+  /* Ensure messages are scrollable */
 }
-.backgroundimg
-{
+
+textarea {
+  resize: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+button {
+  height: auto;
+  align-self: flex-end;
+}
+
+.chat-bg {
+  background-color: rgba(15, 23, 42, 0.726);
+}
+
+.backgroundimg {
   background-image: url("../../assets/chatappwb.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -67,25 +162,42 @@ background-color: rgba(15, 23, 42, 0.726);
   min-height: 100vh;
 }
 
-.chatboox
-{
-min-height:80% ;
+.chatboox {
+  min-height: 90% !important;
+  max-height: 90% !important;
 }
-#Side
-{
-min-height: 80vh;
-max-height: 80vh;
+
+#Side {
+  min-height: 80vh;
+  max-height: 80vh;
 
 }
-#chatcontent
-{
+
+#chatcontent {
   min-height: 80vh;
 }
-.chatbox-content
-{
-  height: 100% !important;
+
+.chatbox {
+  min-height: 100% !important;
 }
 
+.chatheader {
+  min-height: 10% !important;
+  max-height: 10% !important;
+}
+
+.chatboox {
+  min-height: 80% !important;
+}
+
+.chatinput {
+  min-height: 20% !important;
+  max-height: 20% !important;
+}
+
+.chatcontainer {
+  min-height: 100%;
+}
 
 #Side {
   --sb-track-color: #232e33;
@@ -108,9 +220,32 @@ max-height: 80vh;
 
 }
 
+.search-bar {
+  position: relative;
+  display: flex;
+
+  .search-input {
+    padding-left: 3rem; // Adds space for the icon
+  }
+
+  .search-btn {
+    position: absolute;
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 2rem;
+    background-color: #000;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 @supports not selector(::-webkit-scrollbar) {
   #Side {
-    scrollbar-color: var(--sb-thumb-color)
-                     var(--sb-track-color);
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }

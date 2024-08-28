@@ -6,7 +6,7 @@ export default function SideMenue(props) {
     <>
       <div
         id="Side"
-        className=" mybg col-3 overflow-auto p-3 mx-3 d-flex flex-column  gap-2 align-items-center overflow-auto "
+        className=" mybg col-3 overflow-auto p-3 mx-3 d-flex flex-column  gap-2 align-items-center overflow-scroll "
       >
         <SearchBar></SearchBar>
         {props.Friends.map((el, i) => {
