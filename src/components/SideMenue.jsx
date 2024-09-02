@@ -2,6 +2,8 @@ import Chats from './Chats'
 import SearchBar from './SearchBar'
 
 export default function SideMenue(props) {
+  let userinfo = JSON.parse(localStorage.getItem('user'))
+
   return (
     <>
       <div
@@ -10,14 +12,18 @@ export default function SideMenue(props) {
       >
         <SearchBar></SearchBar>
         {props.Friends.map((el, i) => {
-          return (
-            <Chats
-              key={i}
-              User={el.user_name}
-              status={el.user_status}
-              User_id={i}
-            />
-          )
+          if (el.id === userinfo[0].user_id) {
+            null
+          } else {
+            return (
+              <Chats
+                key={i}
+                User={el.user_name}
+                status={el.user_status}
+                User_id={i}
+              />
+            )
+          }
         })}
       </div>
     </>

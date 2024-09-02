@@ -1,0 +1,42 @@
+#root {
+  min-height: 100vh;
+  height: 100vh;
+}
+
+.main {
+  background-image: url(../../assets/pexels-pixabay-268533.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+
+  .content {
+    z-index: 1;
+    background-color: rgba(56, 8, 102, 0.425) !important;
+  }
+}
+
+.overlay {
+  background-color: #08050096;
+}
+
+.mybgimg {
+  background-image: url(../../assets/Designer.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 70%;
+
+
+}
+
+.bg-secondary {
+  --bs-bg-opacity: 1;
+  background-color: rgb(108 117 125 / 73%) !important;
+}
+
+.mybgimg-tow {
+  background-image: url(../../assets/register.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 70%;
+}

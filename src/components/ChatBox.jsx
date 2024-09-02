@@ -1,12 +1,11 @@
 import { doc, setDoc } from 'firebase/firestore'
 import { useContext, useEffect, useRef, useState } from 'react'
-import { db } from '../firebase/index' // تأكد من استيراد إعدادات Firebase المناسبة
+import { db } from '../firebase/index'
 import { NavContext } from './Context'
-import FriendMsg from './FriendMsg'
-import MyMsg from './MyMsg'
 
 export default function ChatBox() {
-  const { activeUser, Mymsg, setMymsg, LifeChat, loading, getAllMsg, allMsg } =
+  const userInfo = JSON.parse(localStorage.getItem('user'))
+  const { activeUser, Mymsg, setMymsg, LifeChat, loading, allMsg } =
     useContext(NavContext)
 
   const [newMessage, setNewMessage] = useState('')
@@ -16,15 +15,15 @@ export default function ChatBox() {
     if (newMessage.trim()) {
       setMymsg([...Mymsg, { message: newMessage }])
 
-      let indexnumber = allMsg.length
-      indexnumber++
+      const indexnumber = allMsg.length + 1
       await setDoc(doc(db, 'messages', indexnumber.toString()), {
         message: newMessage,
         reciver_id: activeUser.toString(),
-        sender_id: '1',
+        sender_id: userInfo[0].user_id,
       })
 
       setNewMessage('')
+      LifeChat()
     }
   }
 
@@ -37,8 +36,7 @@ export default function ChatBox() {
 
   useEffect(() => {
     LifeChat()
-    getAllMsg()
-  }, [activeUser])
+  }, [])
 
   return (
     <div className="chatcontainer d-flex flex-column flex-grow-1">
@@ -48,12 +46,12 @@ export default function ChatBox() {
         ) : (
           <div className="d-flex flex-column-reverse col-12 gap-5 mb-2 chatboox overflow-auto flex-grow-1">
             <div className="d-flex justify-content-start flex-column gap-2">
-              {Mymsg.map((el, index) => {
-                return <MyMsg key={index} Message={el.message}></MyMsg>
+              {console.log(allMsg)}
+              {console.log(activeUser)}
+              {console.log(userInfo[0].user_id)}
+              {allMsg.map((el, index) => {
+                /* Here's is the problem fix it pleas :) */
               })}
-            </div>
-            <div className="d-flex justify-content-end">
-              <FriendMsg></FriendMsg>
             </div>
           </div>
         )}
