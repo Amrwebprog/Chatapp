@@ -2,6 +2,7 @@ import { doc, setDoc } from 'firebase/firestore'
 import { useContext, useEffect, useRef, useState } from 'react'
 import { db } from '../firebase/index'
 import { NavContext } from './Context'
+import FriendMsg from './FriendMsg'
 
 export default function ChatBox() {
   const userInfo = JSON.parse(localStorage.getItem('user'))
@@ -50,7 +51,19 @@ export default function ChatBox() {
               {console.log(activeUser)}
               {console.log(userInfo[0].user_id)}
               {allMsg.map((el, index) => {
-                /* Here's is the problem fix it pleas :) */
+                if (
+                  (el.sender_id === userInfo[0].user_id.toString() &&
+                    el.reciver_id === activeUser.toString()) ||
+                  (el.sender_id === activeUser.toString() &&
+                    el.reciver_id === userInfo[0].user_id.toString())
+                ) {
+                  if (el.sender_id === userInfo[0].user_id.toString()) {
+                    return <Mymsg key={index} Message={el.message} />
+                  } else if (el.reciver_id === userInfo[0].user_id.toString()) {
+                    return <FriendMsg key={index} Message={el.message} />
+                  }
+                }
+                return null
               })}
             </div>
           </div>
