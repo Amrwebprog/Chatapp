@@ -47,9 +47,6 @@ export default function ChatBox() {
         ) : (
           <div className="d-flex flex-column-reverse col-12 gap-5 mb-2 chatboox overflow-auto flex-grow-1">
             <div className="d-flex justify-content-start flex-column gap-2">
-              {console.log(allMsg)}
-              {console.log(activeUser)}
-              {console.log(userInfo[0].user_id)}
               {allMsg.map((el, index) => {
                 if (
                   (el.sender_id === userInfo[0].user_id.toString() &&
